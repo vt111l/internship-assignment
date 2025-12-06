@@ -1,9 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
 
-// ---------------------------------------------------------
-// HELPER FUNCTIONS
-// ---------------------------------------------------------
-
 /** Fill textbox using ARIA role + label */
 async function fillInput(page: Page, label: string, value: string) {
   await page.getByRole('textbox', { name: label }).fill(value);
@@ -36,12 +32,6 @@ async function clickButton(page: Page, name: string) {
   await page.pause();
 }
 
-
-
-
-// ---------------------------------------------------------
-// 🔥 ORIGINAL TEST — SAME FLOW, NOW USING FUNCTIONS
-// ---------------------------------------------------------
 test('Demo demo', async ({ page }) => {
 
   await page.goto('https://ant-design-form-test.harith-610.workers.dev/');
@@ -98,3 +88,4 @@ test('Demo demo', async ({ page }) => {
   // SUBMIT
   await clickButton(page, 'Submit');
 });
+
