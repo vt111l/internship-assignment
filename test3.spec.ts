@@ -19,7 +19,7 @@ async function selectAntDropdown(page: Page, label: string, option: string) {
 async function searchSelectDropdown(page: Page, label: string, inputId: string, keyword: string) {
   await page.getByRole('combobox', { name: label }).click();
   await page.locator(inputId).fill(keyword);
-  const dropdown = page.locator('.ant-select-dropdown:not(.ant-select-dropdown-hidden)');
+  const dropdown = page.locator('.ant-select-dropdown:not(.ant-select-dropdown-hidden)').first();
   await dropdown.waitFor();
   await dropdown.locator('.ant-select-item-option-content', { hasText: keyword }).first().click({ force: true });
   await page.pause();
@@ -88,4 +88,5 @@ test('Demo demo', async ({ page }) => {
   // SUBMIT
   await clickButton(page, 'Submit');
 });
+
 
